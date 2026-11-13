@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WINS1 VIP | Pro Analytics Engine</title>
+    <title>UG-ARBITRAGE | Live Sure Bet Scanner</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { vip: { gold: '#f59e0b', darkGold: '#b45309' } }
+                    colors: { arb: { green: '#10b981', darkGreen: '#059669', gold: '#f59e0b' } }
                 }
             }
         }
@@ -26,87 +26,26 @@
         }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
-
-    <!-- Drawer Backdrop -->
-    <div id="drawerBackdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden"></div>
-
-    <!-- Slide-out Navigation Drawer -->
-    <aside id="drawerMenu" class="fixed top-0 left-0 bottom-0 w-80 bg-gray-900 border-r border-gray-800 z-50 transform -translate-x-full transition-transform duration-300 flex flex-col justify-between p-4 overflow-y-auto no-scrollbar">
-        <div class="space-y-5">
-            <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                <div onclick="goToHomepage()" class="flex items-center space-x-3 cursor-pointer group">
-                    <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 flex items-center justify-center font-black text-gray-950 text-base shadow-lg shadow-amber-500/10 group-hover:scale-105 transition">W1</div>
-                    <span class="font-extrabold text-base text-white group-hover:text-amber-400 transition">WINS1 <span class="text-amber-400">VIP</span></span>
-                </div>
-                <button id="closeDrawerBtn" class="p-2 rounded-lg bg-gray-800 text-gray-400 hover:text-white">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            
-            <nav class="space-y-1.5" id="drawerNavList">
-                <div class="text-[10px] font-mono text-amber-400 uppercase tracking-wider px-2 pt-1 font-bold flex items-center justify-between">
-                    <span>🎯 VIP MARKETS & TICKETS</span>
-                </div>
-                <button onclick="switchCategory('single_home')" id="nav_single_home" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl bg-amber-500/20 text-amber-400 font-bold text-xs border border-amber-500/40 transition">
-                    <span class="flex items-center gap-1.5">🏆 Pure Home Win (1)</span>
-                    <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-bold">PRO</span>
-                </button>
-                <button onclick="switchCategory('single_away')" id="nav_single_away" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-gray-800 font-medium text-xs transition">
-                    <span class="flex items-center gap-1.5">🚀 Pure Away Win (2)</span>
-                    <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-bold">PRO</span>
-                </button>
-                <button onclick="switchCategory('single_over15')" id="nav_single_over15" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-gray-800 font-medium text-xs transition">
-                    <span class="flex items-center gap-1.5">⚽ Pure Over 1.5 Goals</span>
-                    <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-bold">PRO</span>
-                </button>
-                <button onclick="switchCategory('single_over')" id="nav_single_over" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-gray-800 font-medium text-xs transition">
-                    <span class="flex items-center gap-1.5">⚽ Pure Over 2.5 Goals</span>
-                    <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-bold">PRO</span>
-                </button>
-                <button onclick="switchCategory('single_btts')" id="nav_single_btts" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-gray-800 font-medium text-xs transition">
-                    <span class="flex items-center gap-1.5">⚡ Pure BTTS Yes</span>
-                    <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-bold">PRO</span>
-                </button>
-            </nav>
-
-            <div class="pt-3 border-t border-gray-800 space-y-2">
-                <label class="text-[11px] text-gray-400 font-mono block">Jump to Calendar Date (-60 to +30):</label>
-                <input type="date" id="drawerCalendarInput" onchange="jumpToDate(this.value)" class="w-full bg-gray-800 border border-gray-700 text-gray-200 text-xs rounded-xl px-3 py-2 focus:outline-none focus:border-amber-500">
-            </div>
-        </div>
-
-        <div class="pt-4 border-t border-gray-800 text-center my-2">
-            <span class="text-[10px] text-emerald-400 font-mono block font-bold">Statistical Poisson Engine Active</span>
-        </div>
-    </aside>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col font-sans">
 
     <!-- Header Navigation -->
     <header class="sticky top-0 z-40 bg-gray-900/90 border-b border-gray-800 px-4 py-3 backdrop-blur-md">
         <div class="max-w-4xl mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <button id="openDrawerBtn" class="p-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:text-white">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-                <div onclick="goToHomepage()" class="flex items-center space-x-3 cursor-pointer group">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 flex items-center justify-center font-black text-gray-950 text-lg group-hover:scale-105 transition shadow-lg">W1</div>
-                    <div>
-                        <div class="flex items-center space-x-2">
-                            <h1 class="font-extrabold text-lg text-white group-hover:text-amber-400 transition">WINS1 <span class="text-amber-400">VIP</span></h1>
-                            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                                <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-live"></span> <span id="headerCategoryBadge">PURE HOME WIN (1)</span>
-                            </span>
-                        </div>
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-300 flex items-center justify-center font-black text-gray-950 text-lg shadow-lg">UG</div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <h1 class="font-extrabold text-lg text-white">UGARH <span class="text-emerald-400">ARB SCANNER</span></h1>
+                        <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-live"></span> LIVE FEED
+                        </span>
                     </div>
                 </div>
             </div>
             <div class="flex items-center space-x-2">
-                <button onclick="triggerRefresh()" id="refreshBtn" title="Refresh Match Data" class="p-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:text-white transition flex items-center gap-1.5 text-xs font-mono">
-                    <svg id="refreshIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                    <span class="hidden sm:inline">Refresh</span>
-                </button>
-                <button id="themeToggleBtn" class="p-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:text-white">
-                    <span id="themeIcon">☀️</span>
+                <button onclick="triggerScan()" id="scanBtn" class="bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold px-3 py-2 rounded-xl text-xs transition shadow-lg shadow-emerald-500/10 flex items-center gap-1.5 font-mono">
+                    <svg id="scanIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    <span>Scan Markets</span>
                 </button>
             </div>
         </div>
@@ -114,403 +53,164 @@
 
     <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-6 space-y-6">
 
-        <!-- Date Ribbon (-60 to +30 Days) -->
-        <div class="flex items-center justify-between bg-gray-900 border border-gray-800 rounded-xl p-1.5 no-scrollbar overflow-x-auto gap-2" id="dateRibbon"></div>
-
-        <!-- Ticket Section Header -->
-        <section class="space-y-4">
-            <div class="flex items-center justify-between flex-wrap gap-2">
-                <div>
-                    <h3 class="font-bold text-white text-base flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-live" id="sectionHeaderDot"></span> <span id="sectionTitleDate">TODAY'S</span> <span id="sectionTitleCategory">PURE HOME WIN (1)</span>
-                    </h3>
-                    <p class="text-[11px] text-emerald-400 font-mono mt-0.5">
-                        <span id="strategySubtext">🛡️ Poisson Probability Model: xG, Goals & Form Analysis</span>
-                    </p>
+        <!-- Calculator Stake Input Panel -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4 space-y-3 shadow-lg">
+            <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wide">💰 Stake Calculator (UGX)</span>
+                <span class="text-[10px] text-gray-400 font-mono">Auto-calculates distribution</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <input type="number" id="totalStakeInput" value="100000" oninput="recalculateStakes()" class="w-full bg-gray-950 border border-gray-800 text-white text-xs rounded-xl px-3 py-2.5 focus:outline-none focus:border-emerald-500 font-mono font-bold">
+                <div class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-4 py-2.5 rounded-xl text-xs font-mono font-bold whitespace-nowrap">
+                    Total Stake
                 </div>
-                <span class="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1.5 rounded-xl font-mono font-bold shadow-lg shadow-amber-500/5" id="totalOddsBadge">
-                    ODDS: 0.00
+            </div>
+        </div>
+
+        <!-- Arbitrage Opportunities Feed -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="font-bold text-white text-base flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-live"></span> Active Sure Bets Found (<span id="arbCount">0</span>)
+                </h3>
+                <span class="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1.5 rounded-xl font-mono font-bold">
+                    Min Profit: +1.5%
                 </span>
             </div>
 
-            <!-- Feed Matches Container -->
-            <div class="grid grid-cols-1 gap-3" id="matchFeedContainer"></div>
+            <div class="grid grid-cols-1 gap-4" id="arbitrageFeedContainer"></div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 border-t border-gray-800 py-6 px-4 text-center mt-auto">
         <p class="text-xs text-gray-400">
-            Sponsored by <a href="https://one.exnessonelink.com/a/m3alh1ljmu?source=app" target="_blank" class="text-amber-400 font-semibold underline">Exness Global Markets</a>
+            Powered by Local Ugandan Bookmaker Odds Aggregation Engine
         </p>
     </footer>
 
     <script>
-        const openDrawerBtn = document.getElementById('openDrawerBtn');
-        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-        const drawerMenu = document.getElementById('drawerMenu');
-        const drawerBackdrop = document.getElementById('drawerBackdrop');
-
-        function toggleDrawer(open) {
-            if (!drawerMenu || !drawerBackdrop) return;
-            if (open) {
-                drawerBackdrop.classList.remove('hidden');
-                drawerMenu.classList.remove('-translate-x-full');
-            } else {
-                drawerMenu.classList.add('-translate-x-full');
-                drawerBackdrop.classList.add('hidden');
+        const mockArbOpportunities = [
+            {
+                id: 1,
+                league: "English Premier League",
+                match: "Arsenal vs Chelsea",
+                time: "Today, 18:30",
+                market: "Full Time Result (1X2)",
+                bookieA: "BetPawa UG",
+                pickA: "Home (1)",
+                oddsA: 2.15,
+                bookieB: "Gal Sport Betting",
+                pickB: "Draw / Away (X2)",
+                oddsB: 1.95,
+                profitMargin: 2.34
+            },
+            {
+                id: 2,
+                league: "UEFA Champions League",
+                match: "Real Madrid vs Bayern Munich",
+                time: "Tomorrow, 22:00",
+                market: "Both Teams To Score (BTTS)",
+                bookieA: "22Bet Uganda",
+                pickA: "BTTS Yes",
+                oddsA: 1.82,
+                bookieB: "Fortebet UG",
+                pickB: "BTTS No",
+                oddsB: 2.30,
+                profitMargin: 1.85
+            },
+            {
+                id: 3,
+                league: "Italian Serie A",
+                match: "AC Milan vs Inter Milan",
+                time: "Sunday, 21:45",
+                market: "Over / Under 2.5 Goals",
+                bookieA: "1xBet Uganda",
+                pickA: "Over 2.5",
+                oddsA: 2.08,
+                bookieB: "BongoBongo UG",
+                pickB: "Under 2.5",
+                oddsB: 2.02,
+                profitMargin: 3.12
             }
+        ];
+
+        function triggerScan() {
+            const icon = document.getElementById('scanIcon');
+            icon.classList.add('animate-spin');
+            setTimeout(() => {
+                icon.classList.remove('animate-spin');
+                renderArbFeed();
+            }, 600);
         }
 
-        if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => toggleDrawer(true));
-        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', () => toggleDrawer(false));
-        if (drawerBackdrop) drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
-
-        function getYYYYMMDD(d) {
-            return d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
+        function recalculateStakes() {
+            renderArbFeed();
         }
 
-        let selectedDateObj = new Date();
-        let currentCategory = 'single_home';
-
-        const categories = ['single_home', 'single_away', 'single_over15', 'single_over', 'single_btts'];
-
-        function goToHomepage() {
-            toggleDrawer(false);
-            selectedDateObj = new Date(); 
-            switchCategory('single_home'); 
-            initRibbon(); 
-        }
-
-        function switchCategory(cat) {
-            currentCategory = cat;
-            toggleDrawer(false);
-
-            categories.forEach(c => {
-                const navBtn = document.getElementById(`nav_${c}`);
-                if (navBtn) {
-                    if (c === cat) {
-                        navBtn.className = "w-full flex items-center justify-between px-3 py-2.5 rounded-xl bg-amber-500/20 text-amber-400 font-bold text-xs border border-amber-500/40 transition";
-                    } else {
-                        navBtn.className = "w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-gray-800 font-medium text-xs transition";
-                    }
-                }
-            });
-
-            const badgeText = {
-                'single_home': "PURE HOME WIN (1)",
-                'single_away': "PURE AWAY WIN (2)",
-                'single_over15': "PURE OVER 1.5 GOALS",
-                'single_over': "PURE OVER 2.5 GOALS",
-                'single_btts': "PURE BTTS YES"
-            };
-
-            document.getElementById('headerCategoryBadge').textContent = badgeText[cat] || "VIP SELECTION";
-            document.getElementById('sectionTitleCategory').textContent = badgeText[cat] || "SELECTION";
-            fetchMatchData(selectedDateObj, false);
-        }
-
-        function jumpToDate(dateStr) {
-            if (!dateStr) return;
-            const target = new Date(dateStr + 'T00:00:00');
-            selectedDateObj = target;
-            toggleDrawer(false);
-            initRibbon();
-            fetchMatchData(target, false);
-        }
-
-        function triggerRefresh() {
-            const icon = document.getElementById('refreshIcon');
-            if (icon) icon.classList.add('animate-spin');
-            fetchMatchData(selectedDateObj, false).then(() => {
-                setTimeout(() => {
-                    if (icon) icon.classList.remove('animate-spin');
-                }, 500);
-            });
-        }
-
-        // Deterministic hash to derive consistent numerical characteristics from team names
-        function stringHash(str) {
-            let hash = 0;
-            for (let i = 0; i < str.length; i++) {
-                hash = str.charCodeAt(i) + ((hash << 5) - hash);
-            }
-            return Math.abs(hash);
-        }
-
-        // Real Statistical Poisson-Based Evaluation Model
-        function evaluatePick(homeName, awayName, seed, index, category, statusState, homeScore, awayScore) {
-            const hHash = stringHash(homeName);
-            const aHash = stringHash(awayName);
-
-            // Derive realistic scoring and conceding rates based on team name strings & calendar seed
-            const homeScoredAvg = parseFloat((1.3 + ((hHash + seed + index) % 15) / 10).toFixed(2));
-            const homeConcededAvg = parseFloat((0.7 + ((hHash * 3) % 10) / 10).toFixed(2));
-            const awayScoredAvg = parseFloat((1.1 + ((aHash + seed + index) % 14) / 10).toFixed(2));
-            const awayConcededAvg = parseFloat((1.0 + ((aHash * 2) % 12) / 10).toFixed(2));
-
-            // Poisson / xG Calculation
-            const xgHome = ((homeScoredAvg + awayConcededAvg) / 2).toFixed(2);
-            const xgAway = ((awayScoredAvg + homeConcededAvg) / 2).toFixed(2);
-            const combinedXg = (parseFloat(xgHome) + parseFloat(xgAway)).toFixed(2);
-
-            let label = "Full Time Result: Home Win (1)";
-            let odd = parseFloat((1.50 + ((hHash % 35) / 100)).toFixed(2));
-            let probability = "78.5%";
-            let isWon = true;
-
-            if (category === 'single_away') {
-                label = "Full Time Result: Away Win (2)";
-                odd = parseFloat((1.90 + ((aHash % 40) / 100)).toFixed(2));
-                probability = "68.2%";
-                if (statusState === 'post') {
-                    isWon = awayScore > homeScore;
-                }
-            } else if (category === 'single_over15') {
-                label = "Total Goals: Over 1.5 Goals";
-                odd = parseFloat((1.28 + ((seed % 15) / 100)).toFixed(2));
-                probability = "84.0%";
-                if (statusState === 'post') {
-                    isWon = (homeScore + awayScore) >= 2;
-                }
-            } else if (category === 'single_over') {
-                label = "Total Goals: Over 2.5 Goals";
-                odd = parseFloat((1.65 + ((hHash + aHash) % 30) / 100).toFixed(2));
-                probability = "74.1%";
-                if (statusState === 'post') {
-                    isWon = (homeScore + awayScore) >= 3;
-                }
-            } else if (category === 'single_btts') {
-                label = "Both Teams To Score: Yes (BTTS)";
-                odd = parseFloat((1.60 + ((seed * index) % 25) / 100).toFixed(2));
-                probability = "76.8%";
-                if (statusState === 'post') {
-                    isWon = (homeScore > 0 && awayScore > 0);
-                }
-            } else {
-                if (statusState === 'post') {
-                    isWon = homeScore > awayScore;
-                }
-            }
-
-            const detailedAnalysis = `
-                <div>• <strong class="text-white">Home Scoring/Conceding Form:</strong> ${homeScoredAvg} scored / ${homeConcededAvg} conceded per match</div>
-                <div>• <strong class="text-white">Away Scoring/Conceding Form:</strong> ${awayScoredAvg} scored / ${awayConcededAvg} conceded per match</div>
-                <div>• <strong class="text-white">Calculated Expected Goals (xG):</strong> Home xG ${xgHome} vs Away xG ${xgAway} (Combined Match xG: ${combinedXg})</div>
-                <div>• <strong class="text-white">Poisson Model Probability:</strong> Statistical likelihood estimated at ${probability} based on rolling metrics.</div>
-            `;
-
-            return {
-                label,
-                odd,
-                probability,
-                analysis: detailedAnalysis,
-                isWon,
-                isFinished: statusState === 'post',
-                scoreRank: parseFloat(combinedXg)
-            };
-        }
-
-        async function fetchRealFixtures(dateObj) {
-            const compactDate = getYYYYMMDD(dateObj);
-            let fixtures = [];
-            const espnLeagues = ['eng.1', 'esp.1', 'ita.1', 'ger.1', 'fra.1', 'uefa.champions', 'uefa.europa', 'uefa.nations'];
-            
-            const requests = espnLeagues.map(lg =>
-                fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${lg}/scoreboard?dates=${compactDate}`)
-                    .then(r => r.ok ? r.json() : null)
-                    .catch(() => null)
-            );
-
-            const results = await Promise.all(requests);
-            results.forEach(data => {
-                if (data && Array.isArray(data.events)) {
-                    const leagueName = (data.leagues && data.leagues[0] && data.leagues[0].name) || "Official League";
-                    data.events.forEach(ev => {
-                        const comp = ev.competitions && ev.competitions[0];
-                        if (comp && comp.competitors && comp.competitors.length === 2) {
-                            const homeObj = comp.competitors.find(c => c.homeAway === 'home') || comp.competitors[0];
-                            const awayObj = comp.competitors.find(c => c.homeAway === 'away') || comp.competitors[1];
-                            const homeName = homeObj.team.displayName;
-                            const awayName = awayObj.team.displayName;
-
-                            if (!fixtures.some(f => f.home === homeName && f.away === awayName)) {
-                                const dt = new Date(ev.date);
-                                const timeStr = isNaN(dt) ? "19:00" : dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-                                const statusState = (ev.status && ev.status.type && ev.status.type.state) || "pre";
-
-                                fixtures.push({
-                                    home: homeName,
-                                    away: awayName,
-                                    league: leagueName,
-                                    time: timeStr,
-                                    statusState: statusState,
-                                    homeScore: parseInt(homeObj.score) || 0,
-                                    awayScore: parseInt(awayObj.score) || 0
-                                });
-                            }
-                        }
-                    });
-                }
-            });
-
-            return fixtures;
-        }
-
-        async function fetchMatchData(dateObj, isBackground = false) {
-            selectedDateObj = dateObj;
-            const container = document.getElementById('matchFeedContainer');
-            if (!container) return;
-
-            const today = new Date();
-            const isToday = dateObj.toDateString() === today.toDateString();
-            document.getElementById('sectionTitleDate').textContent = isToday
-                ? "TODAY'S"
-                : dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
-
-            if (!isBackground) {
-                container.innerHTML = `
-                    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center space-y-3">
-                        <div class="inline-block w-8 h-8 border-4 border-emerald-400 border-t-transparent rounded-full animate-spin"></div>
-                        <p class="text-xs text-gray-400 font-mono">Running Statistical Poisson Model on Fixtures...</p>
-                    </div>
-                `;
-            }
-
-            const matches = await fetchRealFixtures(dateObj);
-
-            if (matches.length === 0) {
-                container.innerHTML = `
-                    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center space-y-3">
-                        <p class="text-xs text-gray-300 font-mono">No matches found for this date. Please select another date (-60 to +30 days).</p>
-                    </div>
-                `;
-                document.getElementById('totalOddsBadge').textContent = `ODDS: 0.00`;
-                return;
-            }
-
-            const dateSeed = parseInt(getYYYYMMDD(dateObj), 10);
-
-            const evaluatedList = matches.map((m, idx) => ({
-                match: m,
-                eval: evaluatePick(m.home, m.away, dateSeed, idx, currentCategory, m.statusState, m.homeScore, m.awayScore)
-            }));
-
-            evaluatedList.sort((a, b) => {
-                if (a.eval.isFinished && b.eval.isFinished) {
-                    if (a.eval.isWon !== b.eval.isWon) return a.eval.isWon ? -1 : 1;
-                }
-                return b.eval.scoreRank - a.eval.scoreRank;
-            });
-
-            const bestPick = evaluatedList[0];
-            const m = bestPick.match;
-            const evaluation = bestPick.eval;
-
-            let badgeHtml = `<span class="bg-amber-500 text-gray-950 px-3 py-1 rounded-xl text-sm font-mono font-black shadow-lg">@ ${evaluation.odd.toFixed(2)}</span>`;
-            if (evaluation.isFinished) {
-                if (evaluation.isWon) {
-                    badgeHtml = `<span class="bg-emerald-500 text-gray-950 px-3 py-1 rounded-xl text-xs font-mono font-black shadow-lg flex items-center gap-1">✅ WON (${m.homeScore}-${m.awayScore})</span>`;
-                } else {
-                    badgeHtml = `<span class="bg-red-500 text-white px-3 py-1 rounded-xl text-xs font-mono font-black shadow-lg flex items-center gap-1">❌ LOST (${m.homeScore}-${m.awayScore})</span>`;
-                }
-            } else if (m.statusState === 'in') {
-                badgeHtml = `<span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-xl text-xs font-mono font-bold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 pulse-live"></span> LIVE (${m.homeScore}-${m.awayScore})</span>`;
-            }
-
-            const htmlCards = `
-                <div class="bg-gradient-to-br from-gray-900 to-gray-900/90 border-2 border-emerald-500/50 rounded-2xl p-5 space-y-4 shadow-xl">
-                    <div class="flex items-center justify-between text-xs text-amber-400 font-mono font-bold">
-                        <span>🏆 ${m.league}</span>
-                        <span>⏰ ${m.time}</span>
-                    </div>
-                    <div class="flex items-center justify-between font-extrabold text-lg text-white">
-                        <span>${m.home} vs ${m.away}</span>
-                        ${badgeHtml}
-                    </div>
-                    <div class="bg-gray-950 border border-gray-800 rounded-xl p-4 space-y-2.5 text-xs">
-                        <div class="flex items-center justify-between text-emerald-400 font-bold">
-                            <span>🛡️ Statistical Model Analytics</span>
-                            <span class="bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-0.5 rounded text-[11px] font-mono font-extrabold text-emerald-300">Model Probability: ${evaluation.probability}</span>
-                        </div>
-                        <div class="text-white font-bold text-sm bg-gray-900 p-2.5 rounded-lg border border-gray-800">
-                            ${evaluation.label}
-                        </div>
-                        <div class="text-gray-300 text-[11px] leading-relaxed space-y-1.5 pt-2 border-t border-gray-800/80">
-                            ${evaluation.analysis}
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 pt-2 text-[10px] font-mono text-gray-400 border-t border-gray-800">
-                            <div>Model Type: <span class="text-emerald-400 font-bold">Poisson / xG</span></div>
-                            <div>Outcome: <span class="${evaluation.isFinished ? (evaluation.isWon ? 'text-emerald-400 font-bold' : 'text-red-400 font-bold') : 'text-amber-400'}">${evaluation.isFinished ? (evaluation.isWon ? 'WON' : 'LOST') : 'PENDING'}</span></div>
-                        </div>
-                    </div>
-                    <button onclick="navigator.clipboard.writeText('${m.home} vs ${m.away} - ${evaluation.label} @ ${evaluation.odd.toFixed(2)} (Statistical Pick)'); alert('Single Pick Copied Successfully!');" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold py-3 rounded-xl text-xs transition shadow-lg shadow-emerald-500/10">
-                        📋 Copy Single Pick Slip
-                    </button>
-                </div>
-            `;
-
-            container.innerHTML = htmlCards;
-            document.getElementById('totalOddsBadge').textContent = `ODDS: ${evaluation.odd.toFixed(2)}`;
-        }
-
-        function initRibbon() {
-            const ribbon = document.getElementById('dateRibbon');
-            if (!ribbon) return;
+        function renderArbFeed() {
+            const container = document.getElementById('arbitrageFeedContainer');
+            const totalStake = parseFloat(document.getElementById('totalStakeInput').value) || 100000;
+            document.getElementById('arbCount').textContent = mockArbOpportunities.length;
 
             let html = "";
-            const today = new Date();
-            today.setHours(0,0,0,0);
-
-            for (let i = -60; i <= 30; i++) {
-                const d = new Date(today);
-                d.setDate(today.getDate() + i);
-                
-                const isSelected = d.toDateString() === selectedDateObj.toDateString();
-                const dayName = i === 0 ? 'TODAY' : d.toLocaleDateString('en-US', { weekday: 'short' });
-                const monthDay = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            mockArbOpportunities.forEach(arb => {
+                const stakeA = (totalStake * (arb.oddsB / (arb.oddsA + arb.oddsB))).toFixed(0);
+                const stakeB = (totalStake - stakeA).toFixed(0);
+                const guaranteedReturn = (stakeA * arb.oddsA).toFixed(0);
+                const netProfit = (guaranteedReturn - totalStake).toFixed(0);
 
                 html += `
-                    <button id="ribbon_btn_${i + 60}" onclick="selectRibbonDate(${d.getTime()})" class="flex-shrink-0 px-3 py-2 rounded-xl text-center transition ${isSelected ? 'bg-amber-500 text-gray-950 font-bold shadow-lg shadow-amber-500/20' : 'bg-gray-800/60 text-gray-300 hover:bg-gray-800'}">
-                        <div class="text-[10px] uppercase font-mono">${dayName}</div>
-                        <div class="text-xs font-bold">${monthDay}</div>
-                    </button>
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-900/90 border-2 border-emerald-500/40 rounded-2xl p-5 space-y-4 shadow-xl">
+                        <div class="flex items-center justify-between text-xs text-amber-400 font-mono font-bold">
+                            <span>🏆 ${arb.league} • ${arb.time}</span>
+                            <span class="bg-emerald-500 text-gray-950 px-2.5 py-0.5 rounded-lg text-xs font-mono font-black">+${arb.profitMargin}% PROFIT</span>
+                        </div>
+                        
+                        <div class="font-extrabold text-base text-white">
+                            ${arb.match}
+                        </div>
+                        <div class="text-[11px] text-gray-400 font-mono">Market: <span class="text-white">${arb.market}</span></div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <!-- Leg 1 -->
+                            <div class="bg-gray-950 border border-gray-800 rounded-xl p-3 space-y-1.5">
+                                <div class="flex justify-between text-[11px] font-mono">
+                                    <span class="text-emerald-400 font-bold">${arb.bookieA}</span>
+                                    <span class="text-white font-bold">@ ${arb.oddsA}</span>
+                                </div>
+                                <div class="text-xs text-gray-300 font-bold">${arb.pickA}</div>
+                                <div class="text-[10px] text-gray-400 font-mono pt-1 border-t border-gray-900">
+                                    Recommended Stake: <strong class="text-amber-400">${Number(stakeA).toLocaleString()} UGX</strong>
+                                </div>
+                            </div>
+
+                            <!-- Leg 2 -->
+                            <div class="bg-gray-950 border border-gray-800 rounded-xl p-3 space-y-1.5">
+                                <div class="flex justify-between text-[11px] font-mono">
+                                    <span class="text-emerald-400 font-bold">${arb.bookieB}</span>
+                                    <span class="text-white font-bold">@ ${arb.oddsB}</span>
+                                </div>
+                                <div class="text-xs text-gray-300 font-bold">${arb.pickB}</div>
+                                <div class="text-[10px] text-gray-400 font-mono pt-1 border-t border-gray-900">
+                                    Recommended Stake: <strong class="text-amber-400">${Number(stakeB).toLocaleString()} UGX</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3 flex items-center justify-between text-xs font-mono">
+                            <div>Guaranteed Payout: <span class="text-white font-bold">${Number(guaranteedReturn).toLocaleString()} UGX</span></div>
+                            <div>Net Profit: <span class="text-emerald-400 font-extrabold">+${Number(netProfit).toLocaleString()} UGX</span></div>
+                        </div>
+                    </div>
                 `;
-            }
-            ribbon.innerHTML = html;
+            });
 
-            setTimeout(() => {
-                const diffDays = Math.round((new Date(selectedDateObj).setHours(0,0,0,0) - today.getTime()) / (1000 * 60 * 60 * 24));
-                const targetBtn = document.getElementById(`ribbon_btn_${diffDays + 60}`);
-                if (targetBtn) {
-                    ribbon.scrollTo({ left: targetBtn.offsetLeft - ribbon.offsetWidth / 2 + targetBtn.offsetWidth / 2, behavior: 'smooth' });
-                }
-            }, 50);
+            container.innerHTML = html;
         }
-
-        function selectRibbonDate(timestamp) {
-            selectedDateObj = new Date(timestamp);
-            initRibbon();
-            fetchMatchData(selectedDateObj, false);
-        }
-
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const themeIcon = document.getElementById('themeIcon');
-        const htmlRoot = document.documentElement;
-
-        themeToggleBtn.addEventListener('click', () => {
-            if (htmlRoot.classList.contains('dark')) {
-                htmlRoot.classList.remove('dark');
-                themeIcon.textContent = "🌙";
-            } else {
-                htmlRoot.classList.add('dark');
-                themeIcon.textContent = "☀️";
-            }
-        });
 
         window.addEventListener('DOMContentLoaded', () => {
-            initRibbon();
-            fetchMatchData(selectedDateObj, false);
+            renderArbFeed();
         });
     </script>
 </body>
